@@ -11,6 +11,8 @@ begin
     gem.email = "josh@technicalpickles.com"
     gem.homepage = "http://github.com/technicalpickles/isolate-scenarios"
     gem.authors = ["Joshua Nichols"]
+    gem.add_dependency "thor"
+    gem.add_dependency "isolate"
     gem.add_development_dependency "rspec", ">= 1.2.9"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
