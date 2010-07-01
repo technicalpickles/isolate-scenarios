@@ -5,8 +5,9 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "isolate-scenarios"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.version = "0.0.1"
+    gem.summary = %Q{Tool for testing libraries using different senarios of gem versions}
+    gem.description = %Q{Tool for testing libraries using different senarios of gem versions}
     gem.email = "josh@technicalpickles.com"
     gem.homepage = "http://github.com/technicalpickles/isolate-scenarios"
     gem.authors = ["Joshua Nichols"]

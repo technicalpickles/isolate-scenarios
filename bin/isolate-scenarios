@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require 'isolate/scenarios'
+
+Isolate::Scenarios::Cli.start

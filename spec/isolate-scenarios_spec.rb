@@ -1,7 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
-describe "IsolateScenarios" do
-  it "fails" do
-    fail "hey buddy, you should probably rename this file and start specing for real"
+describe Isolate::Scenarios do
+  it "doesn't have test" do
+    fail "I'm a naughty little project without tests"
   end
 end
