@@ -6,11 +6,15 @@ module Isolate
 
       desc "list", "list scenarios"
       def list
-        sandbox = Isolate::Scenarios::Sandbox.new
+        sandbox = Isolate::Sandbox.new
 
-        puts "#{sandbox.gem_to_vary}:"
-        sandbox.versions.each do |version|
-          puts "* #{sandbox.gem_to_vary}-#{version}"
+        sandbox.entries_with_scenarios.each do |entry|
+          puts "#{entry.name}:"
+
+          entry.scenarios.each do |scenario|
+            is_default_scenario = scenario == entry.default_scenario
+            puts "* #{scenario} #{'(default)' if is_default_scenario}"
+          end
         end
       end
 
@@ -18,10 +22,12 @@ module Isolate
       def rake(*)
         ARGV.delete('rake')
 
-        sandbox = Isolate::Scenarios::Sandbox.new
+        sandbox = Isolate::Sandbox.new
 
-        sandbox.versions.each do |version|
-          system "rake ISOLATE_SCENARIO=#{sandbox.gem_to_vary}-#{version} #{ARGV.join(' ')}"
+        sandbox.entries_with_scenarios.each do |entry|
+          entry.scenarios.each do |scenario|
+            system "rake #{entry.scenario_env_variable}=#{entry.name}-#{scenario} #{ARGV.join(' ')}"
+          end
         end
       end
     end
