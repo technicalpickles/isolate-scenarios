@@ -1,26 +1,13 @@
 require 'isolate'
+require 'isolate/scenarios/extensions'
 require 'isolate/scenarios/cli'
 
 Isolate::Entry.class_eval do
-  def scenarios
-    @options[:scenarios]
-  end
-
-  def default_scenario
-    @options[:default_scenario]
-  end
-
-  def scenario_env_variable
-    "ISOLATE_#{name.upcase.gsub('-', '_')}_SCENARIO"
-  end
+  include Isolate::Scenarios::Entry
 end
 
 Isolate::Sandbox.class_eval do
-  def entries_with_scenarios
-    entries.select do |entry|
-      entry.scenarios
-    end
-  end
+  include Isolate::Scenarios::Entry
 end
 
 Isolate::Events.watch(Isolate::Sandbox, :activating) do |sandbox|
