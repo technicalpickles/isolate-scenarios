@@ -7,7 +7,7 @@ Isolate::Entry.class_eval do
 end
 
 Isolate::Sandbox.class_eval do
-  include Isolate::Scenarios::Entry
+  include Isolate::Scenarios::Sandbox
 end
 
 Isolate::Events.watch(Isolate::Sandbox, :activating) do |sandbox|
