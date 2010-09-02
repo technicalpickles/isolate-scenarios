@@ -6,7 +6,7 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "isolate-scenarios"
-    gem.version = "0.1.0"
+    gem.version = "0.1.1"
     gem.summary = %Q{Tool for testing libraries using different senarios of gem versions}
     gem.description = %Q{Tool for testing libraries using different senarios of gem versions}
     gem.email = "josh@technicalpickles.com"
